@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'lab-angular-simple-journal';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,8 +29,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+const entries = require('./routes/api/journalEntries');
 const index = require('./routes/index');
+
 app.use('/', index);
+app.use('/', entries);
 
 app.all('/*', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');

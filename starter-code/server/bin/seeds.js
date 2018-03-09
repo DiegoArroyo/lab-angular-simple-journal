@@ -1,4 +1,4 @@
-const JournalEntry = require('../models/journal-entry');
+const JournalEntry = require('../models/journalEntry');
 const mongoose     = require('mongoose');
 mongoose.connect('mongodb://localhost/journal-development');
 
